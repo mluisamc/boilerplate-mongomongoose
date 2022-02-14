@@ -29,7 +29,10 @@ const createManyPeople = (arrayOfPeople, done) => {
 };
 
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+  Person.find(personName, function (err, person) {
+    if (err) return console.log(err);
+    done(null, person);
+  });
 };
 
 const findOneByFood = (food, done) => {
