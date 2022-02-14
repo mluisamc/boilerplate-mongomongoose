@@ -22,10 +22,9 @@ const createAndSavePerson = (done) => {
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
-  var people = Person.create(arrayOfPeople);
-  people.save(function(err, data) {
-    if (err) return console.error(err);
-    done(null, data)
+  Person.create(arrayOfPeople, function (err, people) {
+    if (err) return console.log(err);
+    done(null, people);
   });
 };
 
